@@ -1,0 +1,48 @@
+{% extends "template.html" %}
+{% block content %}
+  <form class="formularioSerie" action="{{ url_for('criar') }}" method="post" enctype="multipart/form-data">
+
+    <figure class="img thumbnail col-md-4 formularioImagem">
+      <img class="img-fluid" src="{{ url_for('imagem', nome_arquivo='capa_padrao.jpg') }}">
+      <figcaption class="fileContainer">
+        <label>
+          Mudar Capa
+          <input type="file" name="arquivo" accept=".jpg">
+        </label>
+      </figcaption>
+    </figure>
+
+    <fieldset>
+      {{ form.csrf_token() }}
+      <div class="form-group inputBox">
+        {{ form.nome.label(class="form-label") }}
+        {{ form.nome(class="form-control") }}
+      </div>
+      <div class="form-group inputBox">
+        {{ form.categoria.label(class="form-label") }}
+        {{ form.categoria(class="form-control") }}
+      </div><div class="form-group inputBox">
+        {{ form.plataforma.label(class="form-label") }}
+        {{ form.plataforma(class="form-control") }}
+      </div>
+      <div class="form-group inputBox">
+        {{ form.resumo.label(class="form-label") }}
+        {{ form.resumo(class="form-control") }}
+      </div>
+      <div class="form-group inputBox">
+        {{ form.c_etaria.label(class="form-label") }}
+        {{ form.c_etaria(class="form-control") }}
+      </div>
+
+      <div class="form-group inputBox">
+        {{ form.nota.label(class="form-label") }}
+        {{ form.nota(class="form-label") }}
+      </div>
+
+      <div class="form-group buttons">
+        {{ form.salvar(class="btn btn-primary") }}
+      </div>
+    </fieldset>
+
+  </form>
+{% endblock content %}

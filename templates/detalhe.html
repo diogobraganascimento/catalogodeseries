@@ -1,0 +1,20 @@
+{% extends "template.html" %}
+{% block content %}
+
+<div class="formularioSerie">
+    <figure class="img thumbnail col-md-4 formularioSerie">
+        <img class="img-fluid" src="{{ url_for('imagem', nome_arquivo=capa_serie) }}">
+    </figure>
+
+    <div class="form-group inputBox">
+        <h4 class="form-label">Resumo: {{ serie.resumo }}</h4>
+    </div>
+
+    <div>
+        <a href="{{ url_for('editar', id=serie.id) }}">Editar</a>
+        <a href="{{ url_for('deletar', id=serie.id) }}">Deletar</a>
+        <a href="{{ url_for('lista') }}">Voltar</a>
+    </div>
+</div>
+
+{% endblock content %}

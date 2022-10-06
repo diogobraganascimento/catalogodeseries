@@ -6,8 +6,13 @@ import time
 
 
 @app.route('/')
+def index():
+    return render_template('index.html', titulo='Bem vindo ao Catalogo de Series')
+
+
+@app.route('/lista')
 def lista():
-    lista = Series.query.order_by(Series.id)
+    lista = Series.query.order_by   (Series.id)
     return render_template('lista.html', titulo='Series', series=lista)
 
 
@@ -26,7 +31,7 @@ def novo():
     return render_template('novo.html', titulo='Nova Serie', form=form)
 
 
-@app.route('/criar', methods=['POST',])
+@app.route('/criar', methods=['POST', ])
 def criar():
     form = FormularioSerie(request.form)
 
@@ -77,7 +82,7 @@ def editar(id):
     return render_template('editar.html', titulo='Editando Serie', id=id, capa_serie=capa_serie, form=form)
 
 
-@app.route('/atualizar', methods=['POST',])
+@app.route('/atualizar', methods=['POST', ])
 def atualizar():
     form = FormularioSerie(request.form)
 
